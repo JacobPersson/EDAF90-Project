@@ -6,33 +6,33 @@
 
 <div>
   <mat-toolbar color="primary">
+    <a mat-flat-button
+      color="primary"
+      routerLink="/"
+      routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+      Home
+    </a>
 
-        <a class="hej"
-          routerLink="/search"
-          routerLinkActive="active">
-          <button mat-button
-            class="example-icon"
-            aria-label="Example icon-button with menu icon">
-            <mat-icon>home</mat-icon>
-            Home
-        </button>
-        </a>
-
-    <button mat-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon">
+    <a mat-flat-button
+      color="primary"
+      routerLink="/search"
+      routerLinkActive="active">
       <mat-icon>search</mat-icon>
       Search
-    </button>
+    </a>
 
-    <button mat-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon">
+    <a mat-flat-button
+      color="primary"
+      routerLink="/watchlist"
+      routerLinkActive="active">
       <mat-icon>add_to_queue</mat-icon>
       Watchlist
-    </button>
+    </a>
 
-    <button mat-button
+
+    <button mat-flat-button
+      color="primary"
       [matMenuTriggerFor]="menu"
       class="example-icon"
       aria-label="Example icon-button with share icon">
@@ -41,23 +41,35 @@
     </button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>settings</mat-icon>
-        <span>Settings</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>movie</mat-icon>
-        <span>Viewed movies</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>timeline</mat-icon>
-        <span>Your statistics</span>
-      </button>
+      <a mat-flat-button
+        routerLink="/settings"
+        routerLinkActive="active">
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+      </a>
+
+      <a mat-flat-button
+        routerLink="/viewed-movies"
+        routerLinkActive="active">
+        <button mat-menu-item>
+          <mat-icon>movie</mat-icon>
+          <span>Viewed movies</span>
+        </button>
+      </a>
+
+      <a mat-flat-button
+        routerLink="/statistics"
+        routerLinkActive="active">
+        <button mat-menu-item>
+          <mat-icon>timeline</mat-icon>
+          <span>Your statistics</span>
+        </button>
+      </a>
     </mat-menu>
   </mat-toolbar>
 </div>
-
-<h1> FLYGANDE FILMER </h1>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
