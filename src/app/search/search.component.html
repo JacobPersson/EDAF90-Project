@@ -1,1 +1,26 @@
-<p>search works!</p>
+<div id="page">
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Search</mat-label>
+    <!-- <input searchInput type="search" [(ngModel)]="value"> -->
+    <input #searchInput matInput class="search-bar" type="search" placeholder="Sök...">
+    <!-- <input matInput #searchInput class="md-toolbar-tools search-bar" type="search" placeholder="Search..." (keydown.enter)="fetchSearch(searchInput.value)"> -->
+    <button matSuffix mat-icon-button aria-label="Search">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <app-movie-information></app-movie-information>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-movie-information></app-movie-information>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-movie-information></app-movie-information>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-movie-information></app-movie-information>
+  </mat-grid-tile>
+</mat-grid-list>
