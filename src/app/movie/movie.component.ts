@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class MovieComponent {
-  title: string = '';
+  Title: string = '';
   year: number = 0;
   rated: string = '';
   released: Date = new Date(0);
@@ -15,12 +15,12 @@ export class MovieComponent {
   genre: string[] = [];
   director: string[] = [];
   writer: string[] = [];
-  actors: string[] = [];
-  plot: string = '';
+  Actors: string[] = [];
+  Plot: string = '';
   language: string = '';
   country: string = '';
   awards: string = '';
-  poster: string = '';
+  Poster: string = '';
   ratings: string [] = [];
   metascore: number = 0;
   imdbRating: number = 0;

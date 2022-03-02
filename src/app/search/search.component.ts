@@ -13,16 +13,15 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.fetchSearch("Spider-Man");
   }
 
   fetchSearch(url: string){
     fetch("https://www.omdbapi.com/?s=" + url + "&apikey=e530b6c6")
-      .then(result => result.json())
-      .then(res => {
-        for (let i = 0; i < 10; i++) {
-          //this.movies.push({
-
-          //  });
+      .then(res => res.json())
+      .then(data => {
+        for (let i = 0; i < data.Search.length; i++) {
+          this.movies.push(data.Search[i]);
         }
       });
   }

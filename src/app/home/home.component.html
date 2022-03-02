@@ -1,23 +1,72 @@
-<mat-card class="example-card">
-  <mat-card-title-group>
-    <mat-card-title>Spider-Man: No Way Home</mat-card-title>
-    <mat-card-subtitle>Tom Holland, Zendaya, Benedict Cumberbatch</mat-card-subtitle>
-    <img mat-card-lg-image src="https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_SX300.jpg">
-  </mat-card-title-group>
-  <mat-card-content>
-    With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes
-    from other worlds start to appear, forcing Peter to discover what it truly means to be
-    Spider-Man.
-  </mat-card-content>
+<mat-toolbar>
+  <span>Trending movies</span>
+  <mat-icon>trending_up</mat-icon>
+</mat-toolbar>
 
-  <mat-card-actions>
-    <button mat-button>
-      <mat-icon>bookmark_border</mat-icon>
-      Add to watchlist
-    </button>
-    <button mat-button>
-      <mat-icon>star_border</mat-icon>
-      Rate movie
-    </button>
-  </mat-card-actions>
-</mat-card>
+<mat-grid-list cols="3" rowHeight="430px">
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-title-group>
+        <mat-card-title>{{cards[2].Title}}</mat-card-title>
+        <mat-card-subtitle>{{cards[2].Actors}}</mat-card-subtitle>
+        <img mat-card-lg-image src={{cards[2].Poster}}>
+      </mat-card-title-group>
+      <mat-card-content>{{cards[2].Plot}}</mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button>
+          <mat-icon>bookmark_border</mat-icon>
+          Add to watchlist
+        </button>
+        <button mat-button>
+          <mat-icon>star_border</mat-icon>
+          Rate movie
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-title-group>
+        <mat-card-title>{{cards[0].Title}}</mat-card-title>
+        <mat-card-subtitle>{{cards[0].Actors}}</mat-card-subtitle>
+        <img mat-card-lg-image src={{cards[0].Poster}}>
+      </mat-card-title-group>
+      <mat-card-content>{{cards[0].Plot}}</mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button>
+          <mat-icon>bookmark_border</mat-icon>
+          Add to watchlist
+        </button>
+        <button mat-button>
+          <mat-icon>star_border</mat-icon>
+          Rate movie
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-title-group>
+        <mat-card-title>{{cards[1].Title}}</mat-card-title>
+        <mat-card-subtitle>{{cards[1].Actors}}</mat-card-subtitle>
+        <img mat-card-lg-image src={{cards[1].Poster}}>
+      </mat-card-title-group>
+      <mat-card-content>{{cards[1].Plot}}</mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button>
+          <mat-icon>bookmark_border</mat-icon>
+          Add to watchlist
+        </button>
+        <button mat-button>
+          <mat-icon>star_border</mat-icon>
+          Rate movie
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
