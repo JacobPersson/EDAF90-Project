@@ -1,74 +1,72 @@
-<div>
-  <mat-toolbar>
-    <span> Welcome to MoviExplorer! </span>
-  </mat-toolbar>
-</div>
-
 <nav>
-  <div class="menu">
-  <mat-toolbar color="primary">
-    <a mat-flat-button
-      color="primary"
-      routerLink="/"
-      routerLinkActive="active">
-      <mat-icon>home</mat-icon>
-      Home
-    </a>
+  <div>
+    <mat-toolbar color="primary">
+      <span> Welcome to MoviExplorer! </span>
 
-    <a mat-flat-button
-      color="primary"
-      routerLink="/search"
-      routerLinkActive="active">
-      <mat-icon>search</mat-icon>
-      Search
-    </a>
+      <div class="title-center">
+        <a mat-flat-button
+          color="primary"
+          routerLink="/"
+          routerLinkActive="active">
+          <mat-icon>home</mat-icon>
+          Home
+        </a>
 
-    <a mat-flat-button
-      color="primary"
-      routerLink="/watchlist"
-      routerLinkActive="active">
-      <mat-icon>add_to_queue</mat-icon>
-      Watchlist
-    </a>
+        <a mat-flat-button
+          color="primary"
+          routerLink="/search"
+          routerLinkActive="active">
+          <mat-icon>search</mat-icon>
+          Search
+        </a>
 
-    <button mat-flat-button
-      color="primary"
-      [matMenuTriggerFor]="menu"
-      class="example-icon"
-      aria-label="Example icon-button with share icon">
-      <mat-icon>account_circle</mat-icon>
-      Profile
-    </button>
+        <a mat-flat-button
+          color="primary"
+          routerLink="/watchlist"
+          routerLinkActive="active">
+          <mat-icon>add_to_queue</mat-icon>
+          Watchlist
+        </a>
 
-    <mat-menu #menu="matMenu">
-      <a mat-flat-button
-        routerLink="/settings"
-        routerLinkActive="active">
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span>Settings</span>
+        <button mat-flat-button
+          color="primary"
+          [matMenuTriggerFor]="menu"
+          class="example-icon"
+          aria-label="Example icon-button with share icon">
+          <mat-icon>account_circle</mat-icon>
+          Profile
         </button>
-      </a>
 
-      <a mat-flat-button
-        routerLink="/viewed-movies"
-        routerLinkActive="active">
-        <button mat-menu-item>
-          <mat-icon>movie</mat-icon>
-          <span>Viewed movies</span>
-        </button>
-      </a>
+        <mat-menu #menu="matMenu">
+          <a mat-flat-button
+            routerLink="/settings"
+            routerLinkActive="active">
+            <button mat-menu-item>
+              <mat-icon>settings</mat-icon>
+              <span>Settings</span>
+            </button>
+          </a>
 
-      <a mat-flat-button
-        routerLink="/statistics"
-        routerLinkActive="active">
-        <button mat-menu-item>
-          <mat-icon>timeline</mat-icon>
-          <span>Your statistics</span>
-        </button>
-      </a>
-    </mat-menu>
-  </mat-toolbar>
+          <a mat-flat-button
+            routerLink="/viewed-movies"
+            routerLinkActive="active">
+            <button mat-menu-item>
+              <mat-icon>movie</mat-icon>
+              <span>Viewed movies</span>
+            </button>
+          </a>
+
+          <a mat-flat-button
+            routerLink="/statistics"
+            routerLinkActive="active">
+            <button mat-menu-item>
+              <mat-icon>timeline</mat-icon>
+              <span>Your statistics</span>
+            </button>
+          </a>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
   </div>
 </nav>
 
