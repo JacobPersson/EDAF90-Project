@@ -3,70 +3,33 @@
   <mat-icon>trending_up</mat-icon>
 </mat-toolbar>
 
-<mat-grid-list cols="3" rowHeight="430px">
-  <mat-grid-tile>
-    <mat-card class="example-card">
-      <mat-card-title-group>
-        <mat-card-title>{{cards[2].Title}}</mat-card-title>
-        <mat-card-subtitle>{{cards[2].Actors}}</mat-card-subtitle>
-        <img mat-card-lg-image src={{cards[2].Poster}}>
-      </mat-card-title-group>
-      <mat-card-content>{{cards[2].Plot}}</mat-card-content>
+<mat-grid-list class="full-grid" cols="3" rowHeight="430px">
+  <div *ngFor="let featured of cards">
+    <mat-grid-tile>
+      <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{featured.Title}}</mat-card-title>
+          <mat-card-subtitle>{{featured.Actors}}</mat-card-subtitle>
+          <img mat-card-lg-image src={{featured.Poster}}>
+        </mat-card-title-group>
+        <mat-card-content>{{bigPlot(featured.Plot)}}</mat-card-content>
 
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>bookmark_border</mat-icon>
-          Add to watchlist
-        </button>
-        <button mat-button>
-          <mat-icon>star_border</mat-icon>
-          Rate movie
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
+        <mat-card-actions>
+          <button mat-button (click)="addToWatchlist(featured)">
+            <mat-icon>{{watchIcon}}</mat-icon>
+            {{watchButton}}
+          </button>
 
-  <mat-grid-tile>
-    <mat-card class="example-card">
-      <mat-card-title-group>
-        <mat-card-title>{{cards[0].Title}}</mat-card-title>
-        <mat-card-subtitle>{{cards[0].Actors}}</mat-card-subtitle>
-        <img mat-card-lg-image src={{cards[0].Poster}}>
-      </mat-card-title-group>
-      <mat-card-content>{{cards[0].Plot}}</mat-card-content>
+          <button mat-button>
+            <mat-icon>star_border</mat-icon>
+            {{rateButton}}
+          </button>
 
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>bookmark_border</mat-icon>
-          Add to watchlist
-        </button>
-        <button mat-button>
-          <mat-icon>star_border</mat-icon>
-          Rate movie
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <mat-card class="example-card">
-      <mat-card-title-group>
-        <mat-card-title>{{cards[1].Title}}</mat-card-title>
-        <mat-card-subtitle>{{cards[1].Actors}}</mat-card-subtitle>
-        <img mat-card-lg-image src={{cards[1].Poster}}>
-      </mat-card-title-group>
-      <mat-card-content>{{cards[1].Plot}}</mat-card-content>
-
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>bookmark_border</mat-icon>
-          Add to watchlist
-        </button>
-        <button mat-button>
-          <mat-icon>star_border</mat-icon>
-          Rate movie
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
+          <a mat-button routerLink="/movie-information/{{featured.Title}}" routerLinkActive="active">
+            More information ->
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </div>
 </mat-grid-list>

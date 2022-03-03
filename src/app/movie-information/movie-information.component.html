@@ -1,21 +1,80 @@
-<p>movie-information works!</p>
+<div class="block">
+  <div class="img">
+    <img mat-card-lg-image src="{{this.info[0].Poster}}">
+  </div>
 
-<mat-card class="movie-preview">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>View movie</button>
-    <button mat-button>Add to watchlist</button>
-  </mat-card-actions>
-  </mat-card>
+  <div>
+    <h1>{{this.info[0].Title}}</h1>
+  </div>
+
+  <div>
+    {{this.info[0].Plot}}
+  </div><br>
+
+  <div>
+    <div>
+      <strong>
+        Actors:
+      </strong>
+      {{this.info[0].Actors}}
+    </div>
+
+    <div>
+      <strong>
+        Directors:
+      </strong>
+      {{this.info[0].Director}}
+    </div>
+
+    <div>
+      <strong>Genre: </strong>
+      {{this.info[0].Genre}}
+    </div>
+
+    <div>
+      <strong>Runtime: </strong>
+      {{this.info[0].Runtime}}
+    </div>
+
+    <div>
+      <strong>
+        Released:
+      </strong>
+      {{this.info[0].Released}}
+    </div>
+  </div><br>
+
+  <div>
+    <h3>
+      Ratings
+    </h3>
+
+    <strong>
+      Imdb:
+    </strong>
+    {{this.info[0].imdbRating}}
+
+    <strong>
+      Metascore:
+    </strong>
+    {{this.info[0].Metascore}}
+  </div><br>
+
+  <div>
+    <strong>
+      BoxOffice:
+    </strong>
+    {{this.info[0].BoxOffice}}
+  </div>
+</div>
+<mat-card-actions class="buttons">
+  <button mat-button (click)="addToWatchlist(this.info[0])">
+    <mat-icon>{{watchIcon}}</mat-icon>
+    {{watchButton}}
+    </button>
+
+    <button mat-button>
+      <mat-icon>star_border</mat-icon>
+      {{rateButton}}
+    </button>
+</mat-card-actions>

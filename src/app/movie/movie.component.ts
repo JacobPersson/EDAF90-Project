@@ -8,26 +8,26 @@ import { Component } from '@angular/core';
 
 export class MovieComponent {
   Title: string = '';
-  year: number = 0;
+  Year: number = 0;
   rated: string = '';
-  released: Date = new Date(0);
-  runtime: string = '';
-  genre: string[] = [];
-  director: string[] = [];
+  Released: Date = new Date(0);
+  Runtime: string = '';
+  Genre: string[] = [];
+  Director: string[] = [];
   writer: string[] = [];
   Actors: string[] = [];
   Plot: string = '';
   language: string = '';
   country: string = '';
-  awards: string = '';
+  Awards: string = '';
   Poster: string = '';
-  ratings: string [] = [];
-  metascore: number = 0;
-  imdbRating: number = 0;
+  Ratings: string[] = [];
+  Metascore: number = 0;
+  imdbRating: string = "";
   imdbVotes: string = '';
   imdbID: string = '';
   type: string = '';
   dvd: Date = new Date(0);
-  boxOffice: string = '';
+  BoxOffice: string = '';
 
 }

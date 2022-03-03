@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'viewed-movies', component: ViewedMoviesComponent},
   { path: 'statistics', component: StatisticsComponent},
-  { path: 'movie-information', component: MovieInformationComponent},
+  { path: 'movie-information/:movie', component: MovieInformationComponent},
   { path: 'watchlist', component: WatchlistComponent},
   { path: '**', component: HomeComponent } // Page not found
 ];

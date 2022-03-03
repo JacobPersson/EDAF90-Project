@@ -1,0 +1,27 @@
+.block{
+  float: left;
+  width: 92%;
+  margin-left: 4%;
+  margin-top: 2%;
+}
+
+.plot {
+  width: 70%;
+  float: left;
+}
+
+.card {
+  height: fit-content;
+}
+
+.img {
+  margin-left: 10px;
+  float: right;
+  height: auto;
+  width: auto;
+}
+
+.buttons {
+  float: left;
+  margin-left: 3%;
+}

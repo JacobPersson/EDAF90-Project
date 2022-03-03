@@ -1,26 +1,32 @@
 <div id="page">
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search</mat-label>
-    <!-- <input searchInput type="search" [(ngModel)]="value"> -->
-    <input #searchInput matInput class="search-bar" type="search" placeholder="Sök...">
-    <!-- <input matInput #searchInput class="md-toolbar-tools search-bar" type="search" placeholder="Search..." (keydown.enter)="fetchSearch(searchInput.value)"> -->
-    <button matSuffix mat-icon-button aria-label="Search">
+    <input #searchInput matInput class="search-bar" type="search" placeholder="Search for a movie..." (keydown.enter)="fetchSearch(searchInput.value)">
+    <button (click)="fetchSearch(searchInput.value)" matSuffix mat-icon-button aria-label="Search" type="button">
       <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>
 </div>
 
-<mat-grid-list cols="2">
-  <mat-grid-tile>
-    <app-movie-information></app-movie-information>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <app-movie-information></app-movie-information>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <app-movie-information></app-movie-information>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <app-movie-information></app-movie-information>
-  </mat-grid-tile>
-</mat-grid-list>
+<div>
+  <mat-grid-list class="full-grid" cols="4" rowHeight="32rem" >
+  <div #searchOutput *ngFor="let searchOption of movies">
+    <mat-grid-tile class="poster-grid">
+      <a routerLink="/movie-information/{{searchOption.Title}}" routerLinkActive="active">
+        <img mat-card-lg-image class="img" src={{searchOption.Poster}}>
+        <mat-card-actions class="button-grid">
+          <button mat-button (click)="addToWatchlist(searchOption)">
+            <mat-icon>{{watchIcon}}</mat-icon>
+            {{watchButton}}
+            </button>
+
+            <button mat-button>
+              <mat-icon>star_border</mat-icon>
+              {{rateButton}}
+            </button>
+        </mat-card-actions>
+      </a>
+    </mat-grid-tile>
+  </div>
+  </mat-grid-list>
+</div>

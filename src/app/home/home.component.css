@@ -1,4 +1,9 @@
 .example-card {
-  max-width: 300px;
-  margin: 25px;
+  max-width: 330px;
+}
+
+.full-grid {
+  position: absolute;
+  margin-left: 4%;
+  width: 90%;
 }

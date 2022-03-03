@@ -22,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -47,8 +48,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
-    //MatCarouselModule,
+    MatGridListModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

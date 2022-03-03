@@ -9,3 +9,14 @@ mat-form-field  {
   width: 100%;
   margin-top: 25px;
 }
+
+.full-grid {
+  position: absolute;
+  margin-left: 4%;
+  width: 90%;
+}
+
+.img {
+  height: auto;
+  width: auto;
+}
