@@ -16,7 +16,20 @@ mat-form-field  {
   width: 90%;
 }
 
+mat-card  {
+  border: 0;
+}
+
 .img {
   height: auto;
   width: auto;
+}
+
+a {
+  float: left;
+  width: 100%;
+}
+
+.example-card {
+  max-width: 300px;
 }

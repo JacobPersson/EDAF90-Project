@@ -15,16 +15,6 @@
         <mat-card-content>{{bigPlot(featured.Plot)}}</mat-card-content>
 
         <mat-card-actions>
-          <button mat-button (click)="addToWatchlist(featured)">
-            <mat-icon>{{watchIcon}}</mat-icon>
-            {{watchButton}}
-          </button>
-
-          <button mat-button>
-            <mat-icon>star_border</mat-icon>
-            {{rateButton}}
-          </button>
-
           <a mat-button routerLink="/movie-information/{{featured.Title}}" routerLinkActive="active">
             More information ->
           </a>

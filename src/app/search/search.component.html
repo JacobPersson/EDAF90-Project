@@ -9,23 +9,24 @@
 </div>
 
 <div>
-  <mat-grid-list class="full-grid" cols="4" rowHeight="32rem" >
-  <div #searchOutput *ngFor="let searchOption of movies">
+  <mat-grid-list class="full-grid" cols="4" rowHeight="43em">
+  <div #searchOutput *ngFor="let searchOption of movies; let i = index">
     <mat-grid-tile class="poster-grid">
-      <a routerLink="/movie-information/{{searchOption.Title}}" routerLinkActive="active">
-        <img mat-card-lg-image class="img" src={{searchOption.Poster}}>
-        <mat-card-actions class="button-grid">
-          <button mat-button (click)="addToWatchlist(searchOption)">
-            <mat-icon>{{watchIcon}}</mat-icon>
-            {{watchButton}}
-            </button>
+      <mat-card class="example-card">
+        <a routerLink="/movie-information/{{searchOption.Title}}" routerLinkActive="active">
+          <img mat-card-lg-image class="img" src={{searchOption.Poster}}>
+        </a>
 
-            <button mat-button>
-              <mat-icon>star_border</mat-icon>
-              {{rateButton}}
-            </button>
+        <mat-card-content>
+          <h1>{{searchOption.Title}}</h1>
+        </mat-card-content>
+        
+        <mat-card-actions class="button-grid">
+          <a mat-button routerLink="/movie-information/{{searchOption.Title}}" routerLinkActive="active">
+            More information ->
+          </a>
         </mat-card-actions>
-      </a>
+      </mat-card>
     </mat-grid-tile>
   </div>
   </mat-grid-list>
