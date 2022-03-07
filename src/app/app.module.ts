@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+/** Components for MoviExplorer */
 import { SearchComponent } from './search/search.component';
 import { MovieInformationComponent } from './movie-information/movie-information.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
-import { ProfileComponent } from './profile/profile.component';
 import { ViewedMoviesComponent } from './viewed-movies/viewed-movies.component';
-import { StatisticsComponent } from './statistics/statistics.component';
 import { HomeComponent } from './home/home.component';
-import { SettingsComponent } from './settings/settings.component';
 import { MovieComponent } from './movie/movie.component';
 
+/** Imported Modules */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -30,10 +29,7 @@ import { MatListModule } from '@angular/material/list';
     SearchComponent,
     MovieInformationComponent,
     WatchlistComponent,
-    ProfileComponent,
-    SettingsComponent,
     ViewedMoviesComponent,
-    StatisticsComponent,
     HomeComponent,
     MovieComponent
   ],

@@ -1,80 +1,68 @@
 <div class="block">
-  <div class="img">
-    <img mat-card-lg-image src="{{this.info[0].Poster}}">
+  <div>
+    <img mat-card-lg-image class="img" src="{{info.Poster}}">
   </div>
 
   <div>
-    <h1>{{this.info[0].Title}}</h1>
+    <h1>{{info.Title}}</h1>
   </div>
 
   <div>
-    {{this.info[0].Plot}}
+    {{info.Plot}}
   </div><br>
 
   <div>
     <div>
-      <strong>
-        Actors:
-      </strong>
-      {{this.info[0].Actors}}
+      <strong>Actors: </strong>
+      {{info.Actors}}
     </div>
 
     <div>
-      <strong>
-        Directors:
-      </strong>
-      {{this.info[0].Director}}
+      <strong>Directors: </strong>
+      {{info.Director}}
     </div>
 
     <div>
       <strong>Genre: </strong>
-      {{this.info[0].Genre}}
+      {{info.Genre}}
     </div>
 
     <div>
       <strong>Runtime: </strong>
-      {{this.info[0].Runtime}}
+      {{info.Runtime}}
     </div>
 
     <div>
-      <strong>
-        Released:
-      </strong>
-      {{this.info[0].Released}}
+      <strong>Released: </strong>
+      {{info.Released}}
     </div>
+  </div>
+
+  <div>
+    <strong>BoxOffice: </strong>
+    {{info.BoxOffice}}
   </div><br>
 
   <div>
     <h3>
-      Ratings
+      <strong>Critics</strong>
     </h3>
+    <strong>Imdb: </strong>
+    {{info.imdbRating}}
 
-    <strong>
-      Imdb:
-    </strong>
-    {{this.info[0].imdbRating}}
-
-    <strong>
-      Metascore:
-    </strong>
-    {{this.info[0].Metascore}}
+    <strong>Metascore: </strong>
+    {{info.Metascore}}
   </div><br>
-
-  <div>
-    <strong>
-      BoxOffice:
-    </strong>
-    {{this.info[0].BoxOffice}}
-  </div>
 </div>
-<mat-card-actions class="buttons">
-  <button mat-button (click)="addToWatchlist(this.info[0])">
-    <mat-icon>{{watchIcon}}</mat-icon>
-    {{watchButton}}
+
+<div class="buttons">
+    <button mat-button (click)="handleButton(info)">
+      <mat-icon>{{viewButton(info, 'icon')}}</mat-icon>
+      {{viewButton(info, 'button')}}
     </button>
 
-    <button mat-button>
-      <mat-icon>star_border</mat-icon>
-      {{rateButton}}
-    </button>
-</mat-card-actions>
+    <a mat-button routerLink="/watchlist" routerLinkActive="active">
+      <mat-icon>add_to_queue</mat-icon>
+      Your Watchlist ->
+    </a>
+</div>

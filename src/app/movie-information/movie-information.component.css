@@ -5,23 +5,16 @@
   margin-top: 2%;
 }
 
-.plot {
-  width: 70%;
-  float: left;
-}
-
-.card {
-  height: fit-content;
-}
-
 .img {
   margin-left: 10px;
   float: right;
   height: auto;
-  width: auto;
+  min-width: 240px;
+  max-width: 240px;
 }
 
 .buttons {
-  float: left;
+  float: center;
+  margin-top: 10px;
   margin-left: 3%;
 }

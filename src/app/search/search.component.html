@@ -9,25 +9,13 @@
 </div>
 
 <div>
-  <mat-grid-list class="full-grid" cols="4" rowHeight="43em">
-  <div #searchOutput *ngFor="let searchOption of movies; let i = index">
-    <mat-grid-tile class="poster-grid">
-      <mat-card class="example-card">
-        <a routerLink="/movie-information/{{searchOption.Title}}" routerLinkActive="active">
-          <img mat-card-lg-image class="img" src={{searchOption.Poster}}>
-        </a>
-
-        <mat-card-content>
-          <h1>{{searchOption.Title}}</h1>
-        </mat-card-content>
-        
-        <mat-card-actions class="button-grid">
-          <a mat-button routerLink="/movie-information/{{searchOption.Title}}" routerLinkActive="active">
-            More information ->
+  <mat-grid-list class="full-grid" cols="4" rowHeight="430px">
+    <div #searchOutput *ngFor="let searchOption of movies">
+      <mat-grid-tile>
+          <a class="example-card" routerLink="/movie-information/{{searchOption.Title}}" routerLinkActive="active">
+            <img mat-card-lg-image class="img" src={{searchOption.Poster}}>
           </a>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
-  </div>
+      </mat-grid-tile>
+    </div>
   </mat-grid-list>
 </div>

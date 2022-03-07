@@ -30,4 +30,5 @@ export class MovieComponent {
   dvd: Date = new Date(0);
   BoxOffice: string = '';
 
+  constructor() {}
 }

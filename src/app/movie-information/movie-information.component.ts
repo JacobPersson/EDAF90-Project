@@ -9,8 +9,7 @@ import { WatchlistService } from '../watchlist.service';
   styleUrls: ['./movie-information.component.css'],
 })
 export class MovieInformationComponent implements OnInit {
-  info: movie[] = [];
-  ratings: string[] = [];
+  info: movie = new movie();
 
   watchButton: string = 'Add To Watchlist';
   watchIcon: string = 'bookmark_border';
@@ -23,30 +22,52 @@ export class MovieInformationComponent implements OnInit {
     let url = this.router.url;
     let urlArray = url.split('/');
     this.fetchFullInfo(urlArray[2]);
-
-    this.ratings.push(this.info[0].Ratings[0]);
-    console.log(this.ratings);
   }
 
   fetchFullInfo(url: string) {
     fetch('https://www.omdbapi.com/?t=' + url + '&plot=full&apikey=e530b6c6')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        this.info.push(data);
+        this.info = data;
       });
   }
 
-  addToWatchlist(movie: movie) {
-    this.watchlist.addToWatchlist(movie);
-    if (this.watch === 0) {
-      this.watch++;
-      this.watchButton = 'Remove from Watchlist';
-      this.watchIcon = 'bookmark';
+  handleButton(movie: movie) {
+    let watch = this.handleWatch(movie);
+    if (!watch) {
+      this.watchlist.addToWatchlist(movie);
     } else {
-      this.watch--;
-      this.watchButton = 'Add to Watchlist';
-      this.watchIcon = 'bookmark_border';
+      this.watchlist.removeFromWatchlist(movie);
+    }
+  }
+
+  handleWatch(movie: movie) {
+    let watch = this.watchlist
+      .getWatchlist()
+      .filter((e) => e.imdbID === movie.imdbID);
+
+    if (watch.length > 0) {
+      return true;
+    }
+
+    return false;
+  }
+
+  viewButton(movie: movie, a: string) {
+    let button = this.handleWatch(movie);
+
+    if (a === 'button') {
+      if (button) {
+        return 'Remove from Watchlist';
+      }
+
+      return 'Add to Watchlist';
+    } else {
+      if (button) {
+        return 'bookmark';
+      }
+
+      return 'bookmark_border';
     }
   }
 }

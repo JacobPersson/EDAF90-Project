@@ -10,19 +10,51 @@ import { WatchlistService } from '../watchlist.service';
 export class HomeComponent implements OnInit {
   cards: movie[] = [];
 
-  watchButton: string = 'Add To Watchlist';
-  watchIcon: string = 'bookmark_border';
-  watch: number = 0;
-  rateButton: string = 'Rate';
-
   constructor(private watchlist: WatchlistService) {}
 
   ngOnInit(): void {
-    //check_circle_outline
-
-    this.fetchCard('tt10872600');
-    this.fetchCard('tt1877830');
+    /** Fetch featured movies */
+    this.fetchCard('tt10872600'); // Spider-Man: No Way Home
+    this.fetchCard('tt1877830'); // The Batman
     this.fetchCard('tt14992922'); // Tindersvindlaren
+  }
+
+  handleButton(movie: movie) {
+    let watch = this.handleWatch(movie);
+    if (!watch) {
+      this.watchlist.addToWatchlist(movie);
+    } else {
+      this.watchlist.removeFromWatchlist(movie);
+    }
+  }
+
+  handleWatch(movie: movie) {
+    let watch = this.watchlist.getWatchlist().filter((e) => e.imdbID === movie.imdbID);
+
+    if (watch.length > 0) {
+      return true;
+      console.log(watch);
+    }
+
+    return false;
+  }
+
+  viewButton(movie: movie, a: string) {
+    let button = this.handleWatch(movie);
+
+    if (a === 'button') {
+      if (button) {
+        return 'Remove from Watchlist';
+      }
+
+        return 'Add to Watchlist';
+    } else {
+      if (button) {
+        return 'bookmark';
+      }
+
+      return 'bookmark_border';
+    }
   }
 
   fetchCard(imdb: string) {
@@ -31,19 +63,6 @@ export class HomeComponent implements OnInit {
       .then((data) => {
         this.cards.push(data);
       });
-  }
-
-  addToWatchlist(movie: movie) {
-    this.watchlist.addToWatchlist(movie);
-    if (this.watch === 0) {
-      this.watch++;
-      this.watchButton = 'Remove from Watchlist';
-      this.watchIcon = 'bookmark';
-    } else {
-      this.watch--;
-      this.watchButton = 'Add to Watchlist';
-      this.watchIcon = 'bookmark_border'
-    }
   }
 
   bigPlot(plot: string) {

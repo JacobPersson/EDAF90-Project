@@ -4,7 +4,7 @@
 </mat-toolbar>
 
 <mat-grid-list class="full-grid" cols="3" rowHeight="430px">
-  <div *ngFor="let featured of cards">
+  <div *ngFor="let featured of cards; let i = index; ">
     <mat-grid-tile>
       <mat-card class="example-card">
         <mat-card-title-group>
@@ -15,6 +15,11 @@
         <mat-card-content>{{bigPlot(featured.Plot)}}</mat-card-content>
 
         <mat-card-actions>
+          <button mat-button (click)="handleButton(featured)">
+            <mat-icon>{{viewButton(featured, 'icon')}}</mat-icon>
+            {{viewButton(featured, 'button')}}
+          </button>
+
           <a mat-button routerLink="/movie-information/{{featured.Title}}" routerLinkActive="active">
             More information ->
           </a>
