@@ -1,8 +1,8 @@
 <div id="page">
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search</mat-label>
-    <input #searchInput matInput class="search-bar" type="search" placeholder="Search for a movie..." (keydown.enter)="fetchSearch(searchInput.value)">
-    <button (click)="fetchSearch(searchInput.value)" matSuffix mat-icon-button aria-label="Search" type="button">
+    <input #searchInput matInput class="search-bar" type="search" placeholder="Search for a movie..." (keydown.enter)="onSearch(searchInput.value)">
+    <button (click)="onSearch(searchInput.value)" matSuffix mat-icon-button aria-label="Search" type="button">
       <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>

@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./movie.component.css']
 })
 
+// Not used anymore
 export class MovieComponent {
   Title: string = '';
   Year: number = 0;

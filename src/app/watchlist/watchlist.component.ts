@@ -18,7 +18,6 @@ export class WatchlistComponent implements OnInit {
 
   getWatchlist(): void {
     this.watch = this.watchlist.getWatchlist();
-    console.log(this.watch);
   }
 
   handleClear() {

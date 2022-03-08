@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieComponent as movie } from '../movie/movie.component';
-import { WatchlistService } from '../watchlist.service';
+import { Movie, WatchlistService } from '../watchlist.service';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +7,28 @@ import { WatchlistService } from '../watchlist.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  cards: movie[] = [];
+  cards: Movie[] = [];
+  idx: number = 0;
 
   constructor(private watchlist: WatchlistService) {}
 
   ngOnInit(): void {
     /** Fetch featured movies */
-    this.fetchCard('tt10872600'); // Spider-Man: No Way Home
-    this.fetchCard('tt1877830'); // The Batman
-    this.fetchCard('tt14992922'); // Tindersvindlaren
+    this.showMovie('tt10872600');
+    this.showMovie('tt1877830');
+    this.showMovie('tt14992922');
   }
 
-  handleButton(movie: movie) {
+  showMovie(imdb: string) {
+    this.watchlist
+      .getMovieImdb(imdb)
+      .subscribe((data: Movie) => {
+        this.cards[this.idx] = data;
+        this.idx++;
+      });
+  }
+
+  handleButton(movie: Movie) {
     let watch = this.handleWatch(movie);
     if (!watch) {
       this.watchlist.addToWatchlist(movie);
@@ -28,18 +37,17 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  handleWatch(movie: movie) {
+  handleWatch(movie: Movie) {
     let watch = this.watchlist.getWatchlist().filter((e) => e.imdbID === movie.imdbID);
 
     if (watch.length > 0) {
       return true;
-      console.log(watch);
     }
 
     return false;
   }
 
-  viewButton(movie: movie, a: string) {
+  viewButton(movie: Movie, a: string) {
     let button = this.handleWatch(movie);
 
     if (a === 'button') {
@@ -55,14 +63,6 @@ export class HomeComponent implements OnInit {
 
       return 'bookmark_border';
     }
-  }
-
-  fetchCard(imdb: string) {
-    fetch('https://www.omdbapi.com/?i=' + imdb + '&plot=full&apikey=e530b6c6')
-      .then((res) => res.json())
-      .then((data) => {
-        this.cards.push(data);
-      });
   }
 
   bigPlot(plot: string) {
