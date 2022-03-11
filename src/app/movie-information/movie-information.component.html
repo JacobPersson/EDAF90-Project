@@ -1,46 +1,46 @@
 <div class="block">
   <div>
-    <img mat-card-lg-image class="img" src="{{info.Poster}}">
+    <img mat-card-lg-image class="img" src="{{movieInformationService.content.Poster}}">
   </div>
 
   <div>
-    <h1>{{info.Title}}</h1>
+    <h1>{{movieInformationService.content.Title}}</h1>
   </div>
 
   <div>
-    {{info.Plot}}
+    {{movieInformationService.content.Plot}}
   </div><br>
 
   <div>
     <div>
       <strong>Actors: </strong>
-      {{info.Actors}}
+      {{movieInformationService.content.Actors}}
     </div>
 
     <div>
       <strong>Directors: </strong>
-      {{info.Director}}
+      {{movieInformationService.content.Director}}
     </div>
 
     <div>
       <strong>Genre: </strong>
-      {{info.Genre}}
+      {{movieInformationService.content.Genre}}
     </div>
 
     <div>
       <strong>Runtime: </strong>
-      {{info.Runtime}}
+      {{movieInformationService.content.Runtime}}
     </div>
 
     <div>
       <strong>Released: </strong>
-      {{info.Released}}
+      {{movieInformationService.content.Released}}
     </div>
   </div>
 
   <div>
     <strong>BoxOffice: </strong>
-    {{info.BoxOffice}}
+    {{movieInformationService.content.BoxOffice}}
   </div><br>
 
   <div>
@@ -48,21 +48,14 @@
       <strong>Critics</strong>
     </h3>
     <strong>Imdb: </strong>
-    {{info.imdbRating}}
+    {{movieInformationService.content.imdbRating}}
 
     <strong>Metascore: </strong>
-    {{info.Metascore}}
+    {{movieInformationService.content.Metascore}}
   </div><br>
 </div>
 
 <div class="buttons">
-    <button mat-button (click)="handleButton(info)">
-      <mat-icon>{{viewButton(info, 'icon')}}</mat-icon>
-      {{viewButton(info, 'button')}}
-    </button>
-
-    <a mat-button routerLink="/watchlist" routerLinkActive="active">
-      <mat-icon>add_to_queue</mat-icon>
-      Your Watchlist ->
-    </a>
+    <app-watchlist-button [movie]=movieInformationService.content></app-watchlist-button>
+    <app-viewed-movie-button [movie]=movieInformationService.content></app-viewed-movie-button>
 </div>

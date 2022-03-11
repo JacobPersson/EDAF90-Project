@@ -10,7 +10,8 @@ import { MovieInformationComponent } from './movie-information/movie-information
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { ViewedMoviesComponent } from './viewed-movies/viewed-movies.component';
 import { HomeComponent } from './home/home.component';
-import { MovieComponent } from './movie/movie.component';
+import { WatchlistButtonComponent } from './buttons/watchlist-button/watchlist-button.component';
+import { ViewedMovieButtonComponent } from './buttons/viewed-movie-button/viewed-movie-button.component';
 
 /** Imported Modules */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { MatListModule } from '@angular/material/list';
     WatchlistComponent,
     ViewedMoviesComponent,
     HomeComponent,
-    MovieComponent
+    WatchlistButtonComponent,
+    ViewedMovieButtonComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,

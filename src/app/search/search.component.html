@@ -10,9 +10,9 @@
 
 <div>
   <mat-grid-list class="full-grid" cols="4" rowHeight="430px">
-    <div #searchOutput *ngFor="let searchOption of movies">
+    <div #searchOutput *ngFor="let searchOption of searchService.content">
       <mat-grid-tile>
-          <a class="example-card" routerLink="/movie-information/{{searchOption.Title}}" routerLinkActive="active">
+          <a class="example-card" routerLink="/movie-information/{{searchOption.imdbID}}" routerLinkActive="active">
             <img mat-card-lg-image class="img" src={{searchOption.Poster}}>
           </a>
       </mat-grid-tile>

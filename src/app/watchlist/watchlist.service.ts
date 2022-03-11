@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Movie } from '../movie';
 
 @Injectable({
   providedIn: 'root',
@@ -47,50 +48,6 @@ export class WatchlistService {
   clearWatchlist() {
     this.items = [];
     this.source.next(this.items);
+    window.localStorage.setItem('movies', '[]');
   }
-
-  /** ------------- Functions for getting data from OMDB -------------- */
-  getMovieImdb(imdb: string) {
-    return this.http.get<Movie>(
-      'https://www.omdbapi.com/?i=' + imdb + '&plot=full&apikey=e530b6c6'
-    );
-  }
-
-  getMovieSearch(url: string) {
-    return this.http.get<Movie>(
-      'https://www.omdbapi.com/?s=' + url + '&apikey=e530b6c6'
-    );
-  }
-
-  getMovieInfo(url: string) {
-    return this.http.get<Movie>(
-      'https://www.omdbapi.com/?t=' + url + '&plot=full&apikey=e530b6c6'
-    );
-  }
-}
-
-/** Interface for Movies, instead of using MovieComponent. */
-export interface Movie {
-  Title: string;
-  Year: number;
-  rated: string;
-  Released: Date;
-  Runtime: string;
-  Genre: string[];
-  Director: string[];
-  writer: string[];
-  Actors: string[];
-  Plot: string;
-  language: string;
-  country: string;
-  Awards: string;
-  Poster: string;
-  Ratings: string[];
-  Metascore: number;
-  imdbRating: string;
-  imdbVotes: string;
-  imdbID: string;
-  type: string;
-  dvd: Date;
-  BoxOffice: string;
 }
